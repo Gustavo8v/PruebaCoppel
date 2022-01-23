@@ -13,6 +13,10 @@
 		72878B65279D0CF8001616B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72878B63279D0CF8001616B3 /* LaunchScreen.storyboard */; };
 		72878B73279D0DE0001616B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72878B71279D0DE0001616B3 /* LoginViewController.swift */; };
 		72878B74279D0DE0001616B3 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72878B72279D0DE0001616B3 /* LoginViewController.xib */; };
+		72878B76279D104F001616B3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72878B75279D104F001616B3 /* NetworkManager.swift */; };
+		72878B79279D1177001616B3 /* ModelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72878B78279D1177001616B3 /* ModelsRequest.swift */; };
+		72878B7B279D1630001616B3 /* PresenterLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72878B7A279D1630001616B3 /* PresenterLogin.swift */; };
+		72878B7E279D1EDA001616B3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72878B7D279D1EDA001616B3 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		72878B66279D0CF8001616B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72878B71279D0DE0001616B3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72878B72279D0DE0001616B3 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		72878B75279D104F001616B3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		72878B78279D1177001616B3 /* ModelsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsRequest.swift; sourceTree = "<group>"; };
+		72878B7A279D1630001616B3 /* PresenterLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterLogin.swift; sourceTree = "<group>"; };
+		72878B7D279D1EDA001616B3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 		72878B57279D0CF7001616B3 /* PruebaCoppel */ = {
 			isa = PBXGroup;
 			children = (
+				72878B7C279D1ECC001616B3 /* Commons */,
+				72878B77279D115F001616B3 /* Models */,
 				72878B6E279D0D9F001616B3 /* Login */,
 				72878B6C279D0D82001616B3 /* Network */,
 				72878B58279D0CF7001616B3 /* AppDelegate.swift */,
@@ -70,6 +80,7 @@
 		72878B6C279D0D82001616B3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				72878B75279D104F001616B3 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -95,8 +106,25 @@
 		72878B70279D0DB0001616B3 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				72878B7A279D1630001616B3 /* PresenterLogin.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		72878B77279D115F001616B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				72878B78279D1177001616B3 /* ModelsRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		72878B7C279D1ECC001616B3 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				72878B7D279D1EDA001616B3 /* BaseViewController.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,8 +198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72878B76279D104F001616B3 /* NetworkManager.swift in Sources */,
 				72878B73279D0DE0001616B3 /* LoginViewController.swift in Sources */,
+				72878B7B279D1630001616B3 /* PresenterLogin.swift in Sources */,
 				72878B59279D0CF7001616B3 /* AppDelegate.swift in Sources */,
+				72878B79279D1177001616B3 /* ModelsRequest.swift in Sources */,
+				72878B7E279D1EDA001616B3 /* BaseViewController.swift in Sources */,
 				72878B5B279D0CF7001616B3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
