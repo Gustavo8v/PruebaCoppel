@@ -26,6 +26,9 @@ class LoginViewController: BaseViewController {
     func prepareStyles(){
         validateRequestLabel.isHidden = true
         logInButton.layer.cornerRadius = 8
+        userNameTextField.delegate = self
+        passwordNameTextField.delegate = self
+        presenter.hiddeKeyboard(texfields: [userNameTextField, passwordNameTextField], view: self)
     }
     
     func changeValidateLabel(text: String, color: UIColor, isHidden: Bool) {
@@ -64,6 +67,7 @@ class LoginViewController: BaseViewController {
                         userNameTextField.text = nil
                         passwordNameTextField.text = nil
                         let vc = HomeViewController()
+                        vc.delegate = self
                         presentViewController(view: vc, presentation: .overFullScreen)
                     }
                 } errorHandler: { error in
@@ -73,5 +77,16 @@ class LoginViewController: BaseViewController {
         } errorHandler: { error in
             self.changeValidateLabel(text: "Credenciales incorrectas", color: .red, isHidden: false)
         }
+    }
+}
+
+extension LoginViewController: HomeViewControllerDelegate, UITextFieldDelegate {
+    func generateNewToken() {
+        self.createToken()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

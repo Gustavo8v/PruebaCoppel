@@ -33,4 +33,12 @@ class DetailFilmCollectionViewCell: UICollectionViewCell {
         filmRating.text = data.vote_average?.description
         reviewOfTheMovie.text = data.overview
     }
+    
+    func configureItemWithRealm(data: ResultsMoviesRealm){
+        imageMovie.downloaded(from: data.backdrop_path, contentMode: .scaleToFill)
+        titieMovie.text = data.title
+        dateMovie.text = data.release_date
+        filmRating.text = data.vote_average.description
+        reviewOfTheMovie.text = data.overview
+    }
 }

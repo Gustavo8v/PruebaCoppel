@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PresenterLogin {
     
@@ -19,5 +20,11 @@ class PresenterLogin {
     
     func createSession(token: CreateSessionDTO?, succesHandeler: @escaping (ModelGenericRequest?) -> Void, errorHandler: @escaping (Error?) -> Void){
         NetWorkManager.shared.createSession(token: token, succesHandeler: succesHandeler, errorHandler: errorHandler)
+    }
+    
+    func hiddeKeyboard(texfields: [UITextField], view: LoginViewController){
+        for texfield in texfields {
+            texfield.delegate = view.self
+        }
     }
 }

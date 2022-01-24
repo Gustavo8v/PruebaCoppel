@@ -39,7 +39,7 @@ struct ResultsDTO: Codable {
     var genre_ids: [Int]?
     var id: Int?
     var original_language: String?
-    var original_title: String
+    var original_title: String?
     var overview: String?
     var popularity: Double?
     var poster_path: String?

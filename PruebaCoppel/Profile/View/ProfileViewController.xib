@@ -37,7 +37,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UR3-kk-kLp">
-                                    <rect key="frame" x="30" y="176.5" width="165.5" height="163"/>
+                                    <rect key="frame" x="30" y="116.5" width="165.5" height="163"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" red="0.57254904510000004" green="0.82352948189999997" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
@@ -45,13 +45,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyk-Up-WO4">
-                                    <rect key="frame" x="225.5" y="247.5" width="168.5" height="21"/>
+                                    <rect key="frame" x="225.5" y="187.5" width="168.5" height="21"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" red="0.57254904510000004" green="0.82352948189999997" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uq-mg-KL2">
-                                    <rect key="frame" x="20" y="390.5" width="124" height="25"/>
+                                    <rect key="frame" x="20" y="330.5" width="124" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="RRo-Lz-f3C"/>
                                     </constraints>
@@ -60,10 +60,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="as4-i0-sra">
-                                    <rect key="frame" x="20.5" y="435.5" width="373" height="335.5"/>
+                                    <rect key="frame" x="20.5" y="375.5" width="373" height="410"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" secondItem="as4-i0-sra" secondAttribute="width" multiplier="0.9" id="ERD-sx-fPg"/>
+                                        <constraint firstAttribute="height" secondItem="as4-i0-sra" secondAttribute="width" multiplier="1.1" id="ERD-sx-fPg"/>
                                     </constraints>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cc0-DV-n3r">
                                         <size key="itemSize" width="128" height="128"/>
@@ -73,7 +73,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aun no cuentas con películas guardadas, en cuanto agregues una, podrás verlas en esta sección" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvR-kk-XoV">
-                                    <rect key="frame" x="20.5" y="435.5" width="373" height="150"/>
+                                    <rect key="frame" x="20.5" y="375.5" width="373" height="150"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="150" id="oTF-id-TA7"/>
                                     </constraints>
@@ -86,11 +86,9 @@
                             <constraints>
                                 <constraint firstItem="as4-i0-sra" firstAttribute="centerX" secondItem="LZF-Oz-tYI" secondAttribute="centerX" id="1Zi-6n-a4y"/>
                                 <constraint firstItem="UR3-kk-kLp" firstAttribute="leading" secondItem="LZF-Oz-tYI" secondAttribute="leading" constant="30" id="2sU-cg-qNv"/>
-                                <constraint firstAttribute="bottom" secondItem="HvR-kk-XoV" secondAttribute="bottom" priority="250" constant="310.5" id="4GH-1C-d2O"/>
-                                <constraint firstAttribute="bottom" secondItem="as4-i0-sra" secondAttribute="bottom" constant="125" id="4la-KI-eXh"/>
                                 <constraint firstItem="Eyk-Up-WO4" firstAttribute="leading" secondItem="UR3-kk-kLp" secondAttribute="trailing" constant="30" id="5Qi-bw-MMx"/>
                                 <constraint firstItem="0BV-Wo-LZ0" firstAttribute="top" secondItem="LZF-Oz-tYI" secondAttribute="top" constant="30" id="ABw-Yf-OSJ"/>
-                                <constraint firstItem="UR3-kk-kLp" firstAttribute="top" secondItem="0BV-Wo-LZ0" secondAttribute="bottom" constant="120" id="AKG-1i-1aY"/>
+                                <constraint firstItem="UR3-kk-kLp" firstAttribute="top" secondItem="0BV-Wo-LZ0" secondAttribute="bottom" constant="60" id="AKG-1i-1aY"/>
                                 <constraint firstItem="as4-i0-sra" firstAttribute="width" secondItem="LZF-Oz-tYI" secondAttribute="width" multiplier="0.9" id="AeO-4V-aco"/>
                                 <constraint firstItem="HvR-kk-XoV" firstAttribute="top" secondItem="as4-i0-sra" secondAttribute="top" id="NL4-k2-IMh"/>
                                 <constraint firstItem="UR3-kk-kLp" firstAttribute="width" secondItem="LZF-Oz-tYI" secondAttribute="width" multiplier="0.4" id="UNK-E2-9Vf"/>
@@ -99,6 +97,7 @@
                                 <constraint firstItem="Eyk-Up-WO4" firstAttribute="centerY" secondItem="UR3-kk-kLp" secondAttribute="centerY" id="axD-MK-GVI"/>
                                 <constraint firstItem="7uq-mg-KL2" firstAttribute="top" secondItem="UR3-kk-kLp" secondAttribute="bottom" constant="50" id="f0k-LH-s7f"/>
                                 <constraint firstItem="0BV-Wo-LZ0" firstAttribute="leading" secondItem="LZF-Oz-tYI" secondAttribute="leading" constant="20" id="lub-mj-x4o"/>
+                                <constraint firstAttribute="bottom" secondItem="as4-i0-sra" secondAttribute="bottom" constant="110.5" id="oKV-df-D8q"/>
                                 <constraint firstAttribute="trailing" secondItem="Eyk-Up-WO4" secondAttribute="trailing" constant="20" id="ohT-fF-WhH"/>
                                 <constraint firstItem="HvR-kk-XoV" firstAttribute="centerX" secondItem="LZF-Oz-tYI" secondAttribute="centerX" id="q9n-tE-CGf"/>
                                 <constraint firstItem="as4-i0-sra" firstAttribute="top" secondItem="7uq-mg-KL2" secondAttribute="bottom" constant="20" id="ymf-er-wtG"/>

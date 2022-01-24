@@ -4,6 +4,9 @@
 //
 //  Created by Gustavo on 23/01/22.
 //
+protocol HomeViewControllerDelegate: AnyObject{
+    func generateNewToken()
+}
 
 import UIKit
 
@@ -15,6 +18,7 @@ class HomeViewController: BaseViewController {
     var presenter = HomePresenter()
     var pageData = "1"
     var moviesData: [ResultsDTO]?
+    weak var delegate: HomeViewControllerDelegate?
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -36,7 +40,9 @@ class HomeViewController: BaseViewController {
         let logOut = UIAlertAction(title: "Log Out", style: .destructive) { closeSession in
             self.presenter.closeSession(session: NetWorkManager.shared.sessionID) { response in
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true) {
+                        self.delegate?.generateNewToken()
+                    }
                 }
             } errorHandler: { error in
                 DispatchQueue.main.async {
@@ -61,7 +67,7 @@ class HomeViewController: BaseViewController {
     }
     
     func prepareCollectionView(){
-        prepareCollectionViews(collection: filmsCollectionView)
+        prepareCollectionViews(collection: filmsCollectionView, scroll: .vertical)
         filmsCollectionView.delegate = self
         filmsCollectionView.dataSource = self
     }
@@ -78,19 +84,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cellMovie = collectionView.dequeueReusableCell(withReuseIdentifier: DetailFilmCollectionViewCell.identifier, for: indexPath) as? DetailFilmCollectionViewCell else { return cell }
         guard let dataItem = moviesData?[indexPath.item] else { return cell }
         cellMovie.configureItem(data: dataItem)
-        cellMovie.layer.cornerRadius = 8
+        cellMovie.layer.cornerRadius = 14
         return cellMovie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let dataItem = self.moviesData?[indexPath.item] else { return }
         let seeDetail = UIAlertAction(title: "See Detail", style: .default) { onClickSeeDetail in
-            guard let dataItem = self.moviesData?[indexPath.item] else { return }
             let vc = DetailMovieViewController()
             vc.chargeData(data: dataItem)
             self.pushViewController(vc: vc)
         }
-        let saveMovie = UIAlertAction(title: "Save", style: .default) { onClickSaveMovie in
-            print("Aqui lo guardo")
+        let saveMovie = UIAlertAction(title: "Add Favourites", style: .default) { onClickSaveMovie in
+            self.presenter.saveFavouriteMovie(movie: dataItem) { filmError in
+                self.createAlert(title: "¡Ups!", description: "Al parecer este título ya se encunetra en favoritos")
+            }
         }
        createAlertSheet(firstAction: seeDetail, secondAction: saveMovie)
     }

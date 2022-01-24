@@ -24,7 +24,10 @@ class ProfileViewController: BaseViewController {
     
     func prepareCollectionView(){
         imageUser.makeRounded()
-        prepareCollectionViews(collection: favouritsFilmsCollectionView)
+        prepareCollectionViews(collection: favouritsFilmsCollectionView, scroll: .horizontal)
+        favouritsFilmsCollectionView.delegate = self
+        favouritsFilmsCollectionView.dataSource = self
+        validateFilms.isHidden = presenter.moviesData.count == 0 ? false : true
     }
     
     func prueba(){
@@ -39,5 +42,25 @@ class ProfileViewController: BaseViewController {
                 createAlert(title: "Error", description: "Hubo un error al cargar tu información")
             }
         }
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        presenter.moviesData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        guard let cellMovie = collectionView.dequeueReusableCell(withReuseIdentifier: DetailFilmCollectionViewCell.identifier, for: indexPath) as? DetailFilmCollectionViewCell else { return cell }
+        cellMovie.configureItemWithRealm(data: presenter.moviesData[indexPath.item])
+        cellMovie.layer.cornerRadius = 8
+        return cellMovie
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let frame = favouritsFilmsCollectionView.bounds
+        return CGSize(width: frame.width * 0.55, height: frame.height * 0.99)
     }
 }
