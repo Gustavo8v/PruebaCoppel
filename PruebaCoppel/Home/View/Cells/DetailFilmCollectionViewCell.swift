@@ -24,6 +24,7 @@ class DetailFilmCollectionViewCell: UICollectionViewCell {
     
     func prepareStyles(){
         imageMovie.layer.cornerRadius = 14
+        reviewOfTheMovie.isEditable = false
     }
     
     func configureItem(data: ResultsDTO){
