@@ -29,4 +29,9 @@ extension UIImageView {
             guard let url = URL(string: link) else { return }
             downloaded(from: url, contentMode: mode)
         }
+    
+    func makeRounded() {
+        self.layer.cornerRadius = self.frame.size.width / 2
+        self.clipsToBounds = true
+    }
 }

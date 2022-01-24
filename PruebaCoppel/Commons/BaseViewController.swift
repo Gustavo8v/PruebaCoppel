@@ -64,4 +64,12 @@ class BaseViewController: UIViewController {
         let barButton = UIBarButtonItem(customView: rightButton)
         self.navigationItem.rightBarButtonItem = barButton
     }
+    
+    func prepareCollectionViews(collection: UICollectionView){
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumLineSpacing = 30
+        collection.collectionViewLayout = flowLayout
+        collection.register(UINib(nibName: DetailFilmCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: DetailFilmCollectionViewCell.identifier)
+    }
 }

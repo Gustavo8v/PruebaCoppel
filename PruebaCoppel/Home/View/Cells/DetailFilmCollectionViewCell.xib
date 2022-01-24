@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="theMovieDB" translatesAutoresizingMaskIntoConstraints="NO" id="6Bl-97-ypp">
-                        <rect key="frame" x="0.0" y="3" width="400" height="514"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="520"/>
                         <constraints>
                             <constraint firstAttribute="height" secondItem="6Bl-97-ypp" secondAttribute="width" multiplier="1.3" id="b16-bS-PR8"/>
                         </constraints>

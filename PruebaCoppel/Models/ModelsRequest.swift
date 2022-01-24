@@ -49,3 +49,26 @@ struct ResultsDTO: Codable {
     var vote_average: Double?
     var vote_count: Int?
 }
+
+struct InfoProfileDTO: Codable {
+    var avatar: AvatarDTO?
+    var id: Int?
+    var iso_639_1: String?
+    var iso_3166_1: String?
+    var name: String?
+    var include_adult: Bool?
+    var username: String
+}
+
+struct AvatarDTO: Codable {
+    var gravatar: GravatarDTO?
+    var tmdb: TmdbDTO?
+}
+
+struct GravatarDTO: Codable {
+    var hash: String?
+}
+
+struct TmdbDTO: Codable {
+    var avatar_path: String?
+}

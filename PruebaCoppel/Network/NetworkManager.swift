@@ -151,4 +151,30 @@ class NetWorkManager {
             }
         }.resume()
     }
+    
+    func getDetailProfile(session:String, succesHandeler: @escaping(InfoProfileDTO?) -> Void, errorHandler: @escaping(Error?) -> Void){
+        let url = URL(string: "\(endPonit)/account?api_key=\(apiKey)&session_id=\(session)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            let httpResponse = response as? HTTPURLResponse
+            switch httpResponse?.statusCode{
+            case 200:
+                do{
+                    if let jData = data {
+                        let decodedData = try JSONDecoder().decode(InfoProfileDTO.self,from: jData)
+                        succesHandeler(decodedData)
+                        print("jason: \(decodedData)")
+                    }
+                }catch{
+                    errorHandler(error)
+                    print("Error: \(error)")
+                }
+            default:
+                errorHandler(error)
+            }
+        }.resume()
+    }
 }

@@ -31,7 +31,7 @@ class HomeViewController: BaseViewController {
     
     @objc func actionBarButton(){
         let seeProfile = UIAlertAction(title: "ViewProfile", style: .default) { goToProfile in
-            self.pushViewController(vc: ProfileViewController())
+            self.present(ProfileViewController(), animated: true, completion: nil)
         }
         let logOut = UIAlertAction(title: "Log Out", style: .destructive) { closeSession in
             self.presenter.closeSession(session: NetWorkManager.shared.sessionID) { response in
@@ -61,11 +61,7 @@ class HomeViewController: BaseViewController {
     }
     
     func prepareCollectionView(){
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 30
-        flowLayout.scrollDirection = .vertical
-        filmsCollectionView.collectionViewLayout = flowLayout
-        filmsCollectionView.register(UINib(nibName: DetailFilmCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: DetailFilmCollectionViewCell.identifier)
+        prepareCollectionViews(collection: filmsCollectionView)
         filmsCollectionView.delegate = self
         filmsCollectionView.dataSource = self
     }

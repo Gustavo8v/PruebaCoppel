@@ -9,4 +9,7 @@ import Foundation
 
 class ProfilePresenter {
     
+    func getDataProfile(session: String, succesHandeler: @escaping (InfoProfileDTO?) -> Void, errorHandler: @escaping (Error?) -> Void){
+        NetWorkManager.shared.getDetailProfile(session: session, succesHandeler: succesHandeler, errorHandler: errorHandler)
+    }
 }
