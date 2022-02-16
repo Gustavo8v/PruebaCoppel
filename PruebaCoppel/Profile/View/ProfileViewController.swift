@@ -18,30 +18,16 @@ class ProfileViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        prueba()
+        presenter.getDataProfile(image: imageUser, user: nameUser, vc: self)
         prepareCollectionView()
     }
     
     func prepareCollectionView(){
         imageUser.makeRounded()
-        prepareCollectionViews(collection: favouritsFilmsCollectionView, scroll: .horizontal)
+        prepareCollectionProfile(collection: favouritsFilmsCollectionView, scroll: .horizontal, vc: self)
         favouritsFilmsCollectionView.delegate = self
         favouritsFilmsCollectionView.dataSource = self
-        validateFilms.isHidden = presenter.moviesData.count == 0 ? false : true
-    }
-    
-    func prueba(){
-        guard let safeSessionID = NetWorkManager.shared.sessionID?.session_id else { return }
-        presenter.getDataProfile(session: safeSessionID) { response in
-            DispatchQueue.main.async { [self] in
-                imageUser.downloaded(from: response?.avatar?.tmdb?.avatar_path ?? "", contentMode: .scaleToFill)
-                nameUser.text = response?.username
-            }
-        } errorHandler: { error in
-            DispatchQueue.main.async { [self] in
-                createAlert(title: "Error", description: "Hubo un error al cargar tu información")
-            }
-        }
+        presenter.hiddenValidate(validate: validateFilms)
     }
 }
 

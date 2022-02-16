@@ -26,12 +26,12 @@ extension UIImageView {
         }
     
         func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
-            guard let url = URL(string: link) else { return }
+            guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(link)") else { return }
             downloaded(from: url, contentMode: mode)
         }
     
     func makeRounded() {
-        self.layer.cornerRadius = self.frame.size.width / 2
+        self.layer.cornerRadius = self.frame.size.height / 2
         self.clipsToBounds = true
     }
 }

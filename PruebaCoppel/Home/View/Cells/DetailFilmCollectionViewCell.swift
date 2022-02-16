@@ -28,7 +28,7 @@ class DetailFilmCollectionViewCell: UICollectionViewCell {
     }
     
     func configureItem(data: ResultsDTO){
-        imageMovie.downloaded(from: data.backdrop_path ?? "", contentMode: .scaleToFill)
+        imageMovie.downloaded(from: data.backdrop_path ?? "", contentMode: .scaleAspectFill)
         titieMovie.text = data.title
         dateMovie.text = data.release_date
         filmRating.text = data.vote_average?.description

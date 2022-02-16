@@ -28,8 +28,6 @@
                     <segments>
                         <segment title="Popular"/>
                         <segment title="Top Rated"/>
-                        <segment title="On TV"/>
-                        <segment title="Airing Today"/>
                     </segments>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="selectedSegmentTintColor" red="0.42745098469999998" green="0.43137252329999998" blue="0.43921568989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

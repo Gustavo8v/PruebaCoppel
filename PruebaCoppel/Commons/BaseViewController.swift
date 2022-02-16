@@ -65,11 +65,23 @@ class BaseViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = barButton
     }
     
-    func prepareCollectionViews(collection: UICollectionView, scroll: UICollectionView.ScrollDirection){
+    func prepareCollectionViews(collection: UICollectionView, scroll: UICollectionView.ScrollDirection, vc: HomeViewController){
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = scroll
         flowLayout.minimumLineSpacing = 30
         collection.collectionViewLayout = flowLayout
         collection.register(UINib(nibName: DetailFilmCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: DetailFilmCollectionViewCell.identifier)
+        collection.delegate = vc.self
+        collection.delegate = vc.self
+    }
+    
+    func prepareCollectionProfile(collection: UICollectionView, scroll: UICollectionView.ScrollDirection, vc: ProfileViewController){
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = scroll
+        flowLayout.minimumLineSpacing = 30
+        collection.collectionViewLayout = flowLayout
+        collection.register(UINib(nibName: DetailFilmCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: DetailFilmCollectionViewCell.identifier)
+        collection.delegate = vc.self
+        collection.delegate = vc.self
     }
 }
