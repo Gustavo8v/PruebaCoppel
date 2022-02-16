@@ -36,6 +36,15 @@ class HomeViewController: BaseViewController {
     @objc func actionRightBarButton(){
         presenter.actionBarButton(vc: self)
     }
+    
+    @IBAction func onClickReloadMovies(_ sender: Any) {
+        if filmsSegmentControl.selectedSegmentIndex == 0 {
+            presenter.getDataMoview(vc: self, collection: filmsCollectionView)
+        }
+        if filmsSegmentControl.selectedSegmentIndex == 1 {
+            presenter.getTopRateMovies(vc: self, collection: filmsCollectionView)
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

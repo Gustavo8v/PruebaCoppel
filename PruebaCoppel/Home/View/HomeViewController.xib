@@ -31,6 +31,9 @@
                     </segments>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="selectedSegmentTintColor" red="0.42745098469999998" green="0.43137252329999998" blue="0.43921568989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <connections>
+                        <action selector="onClickReloadMovies:" destination="-1" eventType="valueChanged" id="teH-aa-WU0"/>
+                    </connections>
                 </segmentedControl>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jbe-fR-bCa">
                     <rect key="frame" x="20" y="138.5" width="374" height="723.5"/>

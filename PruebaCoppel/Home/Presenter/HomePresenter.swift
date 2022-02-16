@@ -102,4 +102,18 @@ class HomePresenter {
         }
         vc.createAlertSheet(firstAction: seeDetail, secondAction: saveMovie)
     }
+    
+    func getTopRateMovies(vc: HomeViewController, collection: UICollectionView){
+        NetWorkManager.shared.getTopRates(page: "1") { respnseRated in
+            self.moviesData = respnseRated?.results
+            DispatchQueue.main.async {
+                collection.reloadData()
+            }
+        } errorHandler: { errorRated in
+            DispatchQueue.main.async {
+                vc.createAlert(title: "Error",
+                               description: "Hubo un error al cargar la información")
+            }
+        }
+    }
 }

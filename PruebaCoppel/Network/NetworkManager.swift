@@ -123,6 +123,32 @@ class NetWorkManager {
         }.resume()
     }
     
+    func getTopRates(page:String, succesHandeler: @escaping(MoviesDTO?) -> Void, errorHandler: @escaping(Error?) -> Void){
+        let url = URL(string: "\(endPonit)/movie/top_rated?api_key=\(apiKey)&language=es-MX&page=\(page)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            let httpResponse = response as? HTTPURLResponse
+            switch httpResponse?.statusCode{
+            case 200:
+                do{
+                    if let jData = data {
+                        let decodedData = try JSONDecoder().decode(MoviesDTO.self,from: jData)
+                        succesHandeler(decodedData)
+                        print("jason: \(decodedData)")
+                    }
+                }catch{
+                    errorHandler(error)
+                    print("Error: \(error)")
+                }
+            default:
+                errorHandler(error)
+            }
+        }.resume()
+    }
+    
     func closeSession(session: CloseSessionDTO?, succesHandeler: @escaping(ModelGenericRequest?) -> Void, errorHandler: @escaping(Error?) -> Void){
         let url = URL(string: "\(endPonit)/authentication/session?api_key=\(apiKey)")!
         var request = URLRequest(url: url)
